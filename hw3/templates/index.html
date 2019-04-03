@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+<title>Meteorological Forecast</title>
+
+{% load static from staticfiles %}
+
+<style>
+
+body {
+   background-repeat: no-repeat;
+   background-size: 1200px 900px;
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+
+    $('#button').on('click', function () {
+
+        var startDate = $('#date').val();
+
+        var TMAXPoints = [];
+
+        var TMINPoints = [];
+
+        var url = "/forecast/" + startDate +"/"
+
+  $.getJSON(url, function(result) {
+
+    for (var i = 0; i <= result.length - 1; i++) {
+
+      TMAXPoints.push({
+
+        label: result[i].DATE,
+
+        y: parseInt(result[i].TMAX),
+
+      });
+
+      TMINPoints.push({
+
+        label: result[i].DATE,
+
+        y: parseInt(result[i].TMIN),
+
+      });
+
+ 
+
+    }
+
+    console.log(result);
+
+ 
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+
+      title:{
+
+        text: "Weather Forecast" 
+
+      },
+
+      data: [{
+
+        type: "line",
+
+        dataPoints: TMAXPoints,
+
+              },
+
+      {
+
+        type: "line",
+
+        dataPoints: TMINPoints,
+
+      }]
+
+ 
+
+    });
+
+    chart.render();
+
+  });
+
+    });
+
+});
+
+</script>
+
+</head>
+
+<body background="{% static "img/w1.png" %}">
+
+  <h1 align = "center" style="color : green">Meteorological Forecast</h1>
+
+  <div style="text-align:center";>
+
+    <input type = "number" id = "date" placeholder="Enter Date in YYYYMMDD" />
+
+    <input type="button" id = "button" value = "Get Forecast"/>
+
+    <br>
+
+  </div>
+
+<br>
+
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+</body>
+
+</html>
