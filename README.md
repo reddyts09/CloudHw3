@@ -3,7 +3,7 @@ This assignment requires us to develop a dynamic webpage that uses Javascript re
 
 # Configuration Details:
 1. To connect to the aws cloud service:
-- ssh -i "red.pem" ubuntu@ec2-18-217-158-13.us-east-2.compute.amazonaws.com
+- ssh -i "red.pem" ubuntu@ec2-3-17-59-123.us-east-2.compute.amazonaws.com
 
 2. After logging in:
 - sudo apt-get update 
@@ -183,7 +183,7 @@ This assignment requires us to develop a dynamic webpage that uses Javascript re
 
 9. To access the UI Webpage type in the following AWS instance command in the url:
    ```
-   http://ec2-18-217-158-13.us-east-2.compute.amazonaws.com
+   http://ec2-3-17-59-123.us-east-2.compute.amazonaws.com/
 
 # Built With
 - Django,AWS: Web Framework used
