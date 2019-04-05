@@ -183,7 +183,7 @@ This assignment requires us to develop a dynamic webpage that uses Javascript re
 
 9. To access the UI Webpage type in the following AWS instance command in the url:
    ```
-   http://ec2-3-17-59-123.us-east-2.compute.amazonaws.com/
+   http://ec2-3-17-59-123.us-east-2.compute.amazonaws.com/ 
 
 # Built With
 - Django,AWS: Web Framework used
